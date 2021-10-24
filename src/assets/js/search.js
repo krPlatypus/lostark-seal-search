@@ -5,7 +5,9 @@ $(function () {
 
     searchBtn.off('click').on('click', function () {
         $('table[data-category]').closest('div.col').remove();
-        search();
+        for(let i = 1; i <= 5; i++){
+            search(i, 1);
+        }
     });
 
     function search(rowNum, page) {
@@ -378,8 +380,8 @@ $(function () {
 
         item = {...item, ...findSealSet(tds)};
         if (!item.seal1) {
-            alert('각인을 설정해주세요');
-            return;
+            //alert('각인을 설정해주세요');
+            return null;
         }
         return createItemForm(item);
     }

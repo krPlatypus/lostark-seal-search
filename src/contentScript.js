@@ -139,8 +139,8 @@ function parse(document, index) {
         value:  row.querySelector('ul:nth-child(2) li:nth-child(1) font:nth-child(2)').innerText.trim().replace(/\+/g, ''),
     }
     const status2 = {
-        name:  row.querySelector('ul:nth-child(2) li:nth-child(2) font:nth-child(1)').innerText.trim().replace(/[\[\]']+/g,''),
-        value:  row.querySelector('ul:nth-child(2) li:nth-child(2) font:nth-child(2)').innerText.trim().replace(/\+/g, ''),
+        name:  row.querySelector('ul:nth-child(2) li:nth-child(2) font:nth-child(1)') ? row.querySelector('ul:nth-child(2) li:nth-child(2) font:nth-child(1)').innerText.trim().replace(/[\[\]']+/g,'') : '-',
+        value:  row.querySelector('ul:nth-child(2) li:nth-child(2) font:nth-child(2)') ? row.querySelector('ul:nth-child(2) li:nth-child(2) font:nth-child(2)').innerText.trim().replace(/\+/g, '') : '-',
     }
     const effects = {seal1, seal2, debuff, status1, status2};
 
