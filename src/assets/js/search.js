@@ -4,25 +4,27 @@ $(function () {
     const searchRow = $('#searchRow');
 
     searchBtn.off('click').on('click', function () {
+        $('table[data-category]').closest('div.col').remove();
         search();
     });
 
-    function search() {
-        $('table[data-category]').closest('div.col').remove();
-        const item = readyItem(1);
-        /*if (item) {
+    function search(rowNum, page) {
+        //console.log('search', rowNum, page);
+        const item = readyItem(rowNum, page);
+        //console.log('search', item);
+        if (item) {
             chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
                 var activeTab = tabs[0];
                 var activeTabId = activeTab.id;
                 chrome.tabs.sendMessage(activeTabId, item, response => {
                     if (chrome.runtime.lastError) return;
-                    console.log('response', response);
-                    console.log('response data', response.data);
+                    //console.log('response', response);
+                    //console.log('response data', response.data);
                     createTable(item, response.data);
                 });
             });
-        }*/
-        createTable(item, {
+        }
+        /*createTable(item, {
             "acc": [
                 {
                     "name": "비틀린 시간의 목걸이",
@@ -316,8 +318,7 @@ $(function () {
                 }
             ],
             "pagination": "\n        <div class=\"card-footer py-4\">\n            <nav aria-label=\"...\">\n                <ul class=\"pagination justify-content-end mb-0\">\n                    <li class=\"page-item disabled\">\n                    <a class=\"page-link\" href=\"#\" tabindex=\"-1\">\n                      <i class=\"fas fa-angle-left\"></i>\n                      <span class=\"sr-only\">이전</span>\n                    </a>\n                    </li>\n                    \n                        <li class=\"page-item active\">\n                            <a class=\"page-link\" href=\"javascript:void(0)\">1</a>\n                        </li>\n                       \n                        <li class=\"page-item \">\n                            <a class=\"page-link\" href=\"javascript:void(0)\">2</a>\n                        </li>\n                       \n                        <li class=\"page-item \">\n                            <a class=\"page-link\" href=\"javascript:void(0)\">3</a>\n                        </li>\n                       \n                        <li class=\"page-item \">\n                            <a class=\"page-link\" href=\"javascript:void(0)\">4</a>\n                        </li>\n                       \n                        <li class=\"page-item \">\n                            <a class=\"page-link\" href=\"javascript:void(0)\">5</a>\n                        </li>\n                       \n                        <li class=\"page-item \">\n                            <a class=\"page-link\" href=\"javascript:void(0)\">6</a>\n                        </li>\n                       \n                        <li class=\"page-item \">\n                            <a class=\"page-link\" href=\"javascript:void(0)\">7</a>\n                        </li>\n                       \n                        <li class=\"page-item \">\n                            <a class=\"page-link\" href=\"javascript:void(0)\">8</a>\n                        </li>\n                       \n                        <li class=\"page-item \">\n                            <a class=\"page-link\" href=\"javascript:void(0)\">9</a>\n                        </li>\n                       \n                        <li class=\"page-item \">\n                            <a class=\"page-link\" href=\"javascript:void(0)\">10</a>\n                        </li>\n                       \n                    <li class=\"page-item\">\n                        <a class=\"page-link\" href=\"#\">\n                          <i class=\"fas fa-angle-right\"></i>\n                          <span class=\"sr-only\">다음</span>\n                        </a>\n                    </li>\n                </ul>\n            </nav>\n        </div>\n    "
-        });
-        addListeners();
+        });*/
     }
 
     function findSealSet(tds) {
@@ -350,7 +351,8 @@ $(function () {
         return sealSet;
     }
 
-    function readyItem(rowNum, page = 1) {
+    function readyItem(rowNum = 1, page = 1) {
+        console.log('readyItem', rowNum, page);
         const tr = tableBody.find(`tr:nth-child(${rowNum})`);
         const tds = tr.find('td');
         let item = {
@@ -421,14 +423,32 @@ $(function () {
         return itemForm;
     }
 
-    function createTable(item, list) {
-        console.log(item, list);
+    function createTable(item, data) {
+        const itemName = item.name;
+        let rowNum = 1;
+        $('#tableTbody').find('tr td:first-child').each((i, v) => {
+            const td = $(v);
+            if(td.text() === itemName){
+                rowNum = Number(td.closest('tr').index()) + 1;
+                return false;
+            }
+        });
+
+        let col = $('<div class="col"/>')
+        let hasCol = false;
+        const exists = $(`[data-rowNum="${rowNum}"]`);
+        if(exists.length > 0){
+            col = exists.closest('div.col');
+            hasCol = true;
+        }
+        console.log('exists', exists);
+        console.log('col', col);
+        console.log('hasCol', hasCol);
         let html = `
-        <div class="col">
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">${item.name}</h3>
+                    <h3 class="mb-0" data-rowNum="${rowNum}">${item.name}</h3>
                 </div>
                 <!-- Light table -->
                 <div class="table-responsive">
@@ -447,7 +467,7 @@ $(function () {
                         </tr>
                         </thead>
                         <tbody class="list">
-                            ${list.acc.map((a, i) => {
+                            ${data.acc.map((a, i) => {
                                 return `
                                     <tr>
                                         <td>${a.name}</td>
@@ -466,14 +486,69 @@ $(function () {
                         </tbody>
                     </table>
                 </div>
-                ${list.pagination}
+                ${data.pagination}
             </div>
-        </div>
         `;
-        searchRow.append(html);
+        col.html(html);
+        if(!hasCol){
+            searchRow.append(col);
+        }
+        addListeners();
     }
 
     function addListeners(){
-        searchRow.find('ul.pagination li.page-item:not').off('click')
+        searchRow.find('ul.pagination li.page-item').off('click').on('click', function (){
+            const itemName = $(this).closest('div.card').find('.card-header h3').text();
+            let rowNum = 1;
+            $('#tableTbody').find('tr td:first-child').each((i, v) => {
+                const td = $(v);
+                if(td.text() === itemName){
+                    rowNum = Number(td.closest('tr').index()) + 1;
+                    return false;
+                }
+            });
+            const page = Number($(this).text().trim());
+            if(page && !isNaN(page)){
+                search(rowNum, page);
+            }
+        });
+
+        searchRow.find('table tbody tr').off('click').on('click', function (){
+            const background = $(this).hasClass('clicked');
+            if (background) {
+                $(this).removeClass('clicked');
+            } else {
+                $(this).closest('tbody').find('tr').removeClass('clicked');
+                $(this).addClass('clicked');
+            }
+            const itemName = $(this).closest('div.card').find('.card-header h3').text();
+            let target;
+            $('#tableTbody').find('tr td:first-child').each((i, v) => {
+                const td = $(v);
+                if(td.text() === itemName){
+                    target = td.closest('tr');
+                    return false;
+                }
+            });
+            //console.log(target);
+            if(target){
+                // 디버프 클릭한걸로
+                const clickedDebuff = $(this).children('td:nth-child(4)').text().replace(/\s/g, '');
+                //console.log(clickedDebuff, target.find('select.debuff'));
+                target.find('select.debuff option').filter(function() {
+                    return $(this).text() === clickedDebuff;
+                }).prop('selected', true);
+                target.find('select.debuff').change();
+
+                // 특성
+                const clickedStatus1 = $(this).children('td:nth-child(5)').text().split('+')[0].trim();
+                const clickedStatus2 = $(this).children('td:nth-child(6)').text().split('+')[0].trim();
+                //console.log(clickedStatus1, dealOption[clickedStatus1], target.find('select.status:eq(0)'));
+                target.find('select.status:eq(0)').val(dealOption[clickedStatus1]);
+                target.find('select.status:eq(1)').val(dealOption[clickedStatus2]);
+            }
+
+        });
+
     }
 })

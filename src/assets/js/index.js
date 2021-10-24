@@ -110,7 +110,13 @@ const imprintOption = {
 $(function () {
     const tbody = $('#tableTbody');
     //const rows = ['목걸이', '귀걸이1', '귀걸이2', '반지1', '반지2', '각인1', '각인2', '돌'];
-    const rows = [{title: '목걸이', code: category.목걸이}, {title: '귀걸이1', code: category.귀걸이}, {title: '귀걸이2', code: category.귀걸이}, {title: '반지1', code: category.반지}, {title: '반지2', code: category.반지2}, {title: '각인1'}, {title: '각인2'}, {title: '돌'},]
+    const rows = [{title: '목걸이', code: category.목걸이}, {title: '귀걸이1', code: category.귀걸이}, {
+        title: '귀걸이2',
+        code: category.귀걸이
+    }, {title: '반지1', code: category.반지}, {
+        title: '반지2',
+        code: category.반지2
+    }, {title: '각인1'}, {title: '각인2'}, {title: '돌'},]
     // 지역 변수 라인
     const numberOptions = `
         <option value="0">0</option>
@@ -171,26 +177,28 @@ $(function () {
 
     //합계 추가
     tbody.append(`
-                    <td>총합</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>
-                        <div class="row total debuff">
-                            <div class="col" data-seal="damage">공<span>0</span></div>
-                            <div class="col" data-seal="attackspeed">공속<span>0</span></div>
-                            <div class="col" data-seal="defense">방<span>0</span></div>
-                            <div class="col" data-seal="speed">이속<span>0</span></div>                            
-                        </div>
-                    </td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td></td>
-                    <td></td>
+                    <tr>
+                        <td>총합</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <div class="row total debuff">
+                                <div class="col" data-seal="damage">공<span>0</span></div>
+                                <div class="col" data-seal="attackspeed">공속<span>0</span></div>
+                                <div class="col" data-seal="defense">방<span>0</span></div>
+                                <div class="col" data-seal="speed">이속<span>0</span></div>                            
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 `);
 
     // 각인 select 추가
@@ -234,6 +242,40 @@ $(function () {
         });
     });
 
+    // 각인 계산
+    $('select.number').off('change').on('change', function () {
+        const index = $(this).closest('td').index();
+        const nth = index + 1;
+        const tr = tbody.find('tr');
+        let count = 0;
+        tr.each((i, v) => {
+            if (i < tr.length - 1) {
+                const val = Number($(v).find(`td:nth-child(${nth}) select.number`).val());
+                if (val && !isNaN(val)) {
+                    count += val;
+                }
+            }
+        });
+        const totalTd = tr.eq(tr.length-1).find(`td:nth-child(${nth})`);
+        totalTd.text(count);
+        totalTd.removeAttr('class');
+        if(count > 15){
+            totalTd.addClass(`seal_over`);
+        }else if(count === 15){
+            totalTd.addClass(`seal3`);
+        }else if(count < 15 && count > 10){
+            totalTd.addClass(`seal_strange`);
+        }else if(count === 10){
+            totalTd.addClass(`seal2`);
+        }else if(count < 10 && count > 5){
+            totalTd.addClass(`seal_strange`);
+        }else if(count === 5){
+            totalTd.addClass(`seal1`);
+        }else{
+            totalTd.addClass(`seal_under`);
+        }
+    });
+
     //특성 select 추가
     for (const [key, value] of Object.entries(dealOption)) {
         const option = `<option value="${value}" data-status>${key}</option>`;
@@ -245,6 +287,7 @@ $(function () {
         const option = `<option value="${value}" data-status>${key}</option>`;
         $('select.grade').append(option);
     }
+    $('select.grade').val(grade.유물);
 
     // 각인 모달창 각인 추가
     for (const [key, value] of Object.entries(imprintOption)) {

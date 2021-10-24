@@ -15,3 +15,39 @@
 table tr i{
     vertical-align: middle;
 }
+
+table tr.filter-debuff{
+    background: palegoldenrod;
+}
+
+table[data-category] tbody tr{
+    cursor:pointer;
+}
+table[data-category] tbody tr.clicked{
+    background: deepskyblue;
+}
+
+td.seal_over{
+    color: red;
+    font-weight: bold;
+}
+td.seal3{
+    color: forestgreen;
+    font-weight: bold;
+}
+td.seal_strange{
+    color: darkorange;
+    font-weight: bold;
+}
+td.seal2{
+    color: lightseagreen;
+    font-weight: bold;
+}
+td.seal1{
+    color: palegreen;
+    font-weight: bold;
+}
+td.seal_under{
+    color: lightslategray;
+    font-weight: bold;
+}
