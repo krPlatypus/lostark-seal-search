@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 아이템 리스트 -->
+<p class="dsc">최신 데이터 반영은 최대 <em>10분</em> 정도 소요될 수 있어, 게임과 다소 차이가 있을 수 있으니 양해 부탁 드립니다.</p>
+<div class="list">
+    <table class="auctionListTable">
+        <caption><span>경매 아이템 리스트</span></caption>
+        <colgroup>
+            <col style="width:355px">
+            <col>
+            <col style="width:80px">
+            <col style="width:90px">
+            <col style="width:141px">
+            <col style="width:141px">
+            <col style="width:113px">
+        </colgroup>
+        <thead>
+        <tr>
+            <th scope="col" aria-sort="none"><a href="#" id="ITEM_GRADE" class="button button--list-sort">등급</a></th>
+            <th scope="col" aria-sort="none"><a href="#" id="ITEM_LEVEL" class="button button--list-sort">아이템레벨</a></th>
+            <th scope="col" aria-sort="none"><a href="#" id="ITEM_QUALITY" class="button button--list-sort">품질</a></th>
+            <th scope="col" aria-sort="none"><a href="#" id="EXPIREDATE" class="button button--list-sort">남은 시간</a></th>
+            <th scope="col" aria-sort="none"><a href="#" id="BIDSTART_PRICE" class="button button--list-sort">최소 입찰가</a>
+            </th>
+            <th scope="col" aria-sort="none"><a href="#" id="BUY_PRICE" class="button button--list-sort">즉시 구매가</a></th>
+            <th scope="col">입찰 / 구매</th>
+        </tr>
+        </thead>
+        <tbody id="auctionListTbody">
+        <tr>
+            <!-- [D] data-grade 0 ~ 6 아이템 등급 표시. -->
+            <td>
+                <div class="grade" data-grade="4">
+                  <span class="slot" name="pcEquip" data-item="{
+                     &quot;Element_000&quot;: {
+                     &quot;type&quot;: &quot;NameTagBox&quot;,
+                     &quot;value&quot;: &quot;&lt;P ALIGN=&#39;CENTER&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;비틀린 시간의 목걸이&lt;/FONT&gt;&lt;/P&gt;&quot;
+                     },
+                     &quot;Element_001&quot;: {
+                     &quot;type&quot;: &quot;ItemTitle&quot;,
+                     &quot;value&quot;: {
+                     &quot;leftStr0&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;전설 목걸이&lt;/FONT&gt;&lt;/FONT&gt;&quot;,
+                     &quot;leftStr1&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;품질&lt;/FONT&gt;&quot;,
+                     &quot;leftStr2&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;아이템 티어 3&lt;/FONT&gt;&quot;,
+                     &quot;qualityValue&quot;: 69,
+                     &quot;rightStr0&quot;: &quot;&quot;,
+                     &quot;slotData&quot;: {
+                     &quot;advBookIcon&quot;: 0,
+                     &quot;friendship&quot;: 0,
+                     &quot;iconGrade&quot;: 4,
+                     &quot;iconPath&quot;: &quot;EFUI_IconAtlas/Acc/Acc_208.png&quot;,
+                     &quot;imagePath&quot;: &quot;&quot;,
+                     &quot;islandIcon&quot;: 0,
+                     &quot;rtString&quot;: &quot;&quot;,
+                     &quot;seal&quot;: false,
+                     &quot;temporary&quot;: 0,
+                     &quot;town&quot;: 0,
+                     &quot;trash&quot;: 0
+                     }
+                     }
+                     },
+                     &quot;Element_002&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#FF0000&#39;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_003&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;귀속됨&lt;BR&gt;거래 &lt;FONT COLOR=&#39;#FFD200&#39;&gt;3&lt;/FONT&gt;회 가능&lt;BR&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;거래 제한 아이템 레벨&lt;/FONT&gt; 1370&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_004&quot;: {
+                     &quot;type&quot;: &quot;MultiTextBox&quot;,
+                     &quot;value&quot;: &quot;|거래가능&quot;
+                     },
+                     &quot;Element_005&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT COLOR=&#39;#FFD200&#39;&gt;단일 장착 가능&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_006&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;기본 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;힘 +7171&lt;BR&gt;민첩 +7171&lt;BR&gt;지능 +7171&lt;BR&gt;체력 +2322&quot;
+                     }
+                     },
+                     &quot;Element_007&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;추가 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;치명 +404&lt;BR&gt;숙련 +419&quot;
+                     }
+                     },
+                     &quot;Element_008&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;무작위 각인 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;전문의&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;각성&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FE2E2E&#39;&gt;공격속도 감소&lt;/FONT&gt;] 활성도 +1&quot;
+                     }
+                     },
+                     &quot;Element_009&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;품질 업그레이드 불가&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_010&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;Font color=&#39;#5FD3F1&#39;&gt;[카오스 던전] 파푸니카&lt;/font&gt;&lt;BR&gt;&lt;Font color=&#39;#5FD3F1&#39;&gt;[카오스 던전] 베른 남부&lt;/font&gt;&lt;BR&gt;&lt;Font color=&#39;#5FD3F1&#39;&gt;[필드 보스] 베른 남부 - 천둥날개&lt;/font&gt;&quot;
+                     }
+                     }" data-mine=""><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_208.png"
+                                          alt="비틀린 시간의 목걸이"></span>
+                    <span class="name">비틀린 시간의 목걸이</span>
+                    <span class="count">[구매 시 거래 <FONT COLOR='#7641CB'>2회</FONT> 가능]</span>
+                </div>
+                <div class="effect">
+                    <ul>
+                        <li><FONT COLOR='#222'>[전문의]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#222'>[각성]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#e40d30'>[공격속도 감소]</FONT> 활성도 <font color='#7641cb'>+1</font></li>
+                    </ul>
+                    <ul>
+                        <li><font color='#222'>[치명]</font> <font color='#7641cb'>+404</font></li>
+                        <li><font color='#222'>[숙련]</font> <font color='#7641cb'>+419</font></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="level">티어 3</div>
+            </td>
+            <td>
+                <div class="quality"><span class="bar"></span><span class="txt">69</span></div>
+            </td>
+            <td>
+                <div class="time">
+                    3시간 30분
+                </div>
+            </td>
+            <td>
+                <div class="price-row">
+                    <em>1</em><span class="tooltip">현재 최고가 <em>0</em></span>
+                </div>
+            </td>
+            <td>
+                <div class="price-buy">
+                    <em>
+                        -
+                    </em>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="button button--deal-buy" aria-haspopup="true" aria-controls="expand-buy"
+                        aria-expanded="false" data-productid="141013516">입찰 / 구매
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <!-- [D] data-grade 0 ~ 6 아이템 등급 표시. -->
+            <td>
+                <div class="grade" data-grade="4">
+                  <span class="slot" name="pcEquip" data-item="{
+                     &quot;Element_000&quot;: {
+                     &quot;type&quot;: &quot;NameTagBox&quot;,
+                     &quot;value&quot;: &quot;&lt;P ALIGN=&#39;CENTER&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;비틀린 시간의 목걸이&lt;/FONT&gt;&lt;/P&gt;&quot;
+                     },
+                     &quot;Element_001&quot;: {
+                     &quot;type&quot;: &quot;ItemTitle&quot;,
+                     &quot;value&quot;: {
+                     &quot;leftStr0&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;전설 목걸이&lt;/FONT&gt;&lt;/FONT&gt;&quot;,
+                     &quot;leftStr1&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;품질&lt;/FONT&gt;&quot;,
+                     &quot;leftStr2&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;아이템 티어 3&lt;/FONT&gt;&quot;,
+                     &quot;qualityValue&quot;: 67,
+                     &quot;rightStr0&quot;: &quot;&quot;,
+                     &quot;slotData&quot;: {
+                     &quot;advBookIcon&quot;: 0,
+                     &quot;friendship&quot;: 0,
+                     &quot;iconGrade&quot;: 4,
+                     &quot;iconPath&quot;: &quot;EFUI_IconAtlas/Acc/Acc_208.png&quot;,
+                     &quot;imagePath&quot;: &quot;&quot;,
+                     &quot;islandIcon&quot;: 0,
+                     &quot;rtString&quot;: &quot;&quot;,
+                     &quot;seal&quot;: false,
+                     &quot;temporary&quot;: 0,
+                     &quot;town&quot;: 0,
+                     &quot;trash&quot;: 0
+                     }
+                     }
+                     },
+                     &quot;Element_002&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#FF0000&#39;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_003&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;귀속됨&lt;BR&gt;거래 &lt;FONT COLOR=&#39;#FFD200&#39;&gt;3&lt;/FONT&gt;회 가능&lt;BR&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;거래 제한 아이템 레벨&lt;/FONT&gt; 1370&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_004&quot;: {
+                     &quot;type&quot;: &quot;MultiTextBox&quot;,
+                     &quot;value&quot;: &quot;|거래가능&quot;
+                     },
+                     &quot;Element_005&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT COLOR=&#39;#FFD200&#39;&gt;단일 장착 가능&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_006&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;기본 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;힘 +7171&lt;BR&gt;민첩 +7171&lt;BR&gt;지능 +7171&lt;BR&gt;체력 +2322&quot;
+                     }
+                     },
+                     &quot;Element_007&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;추가 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;치명 +442&lt;BR&gt;특화 +378&quot;
+                     }
+                     },
+                     &quot;Element_008&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;무작위 각인 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;전문의&lt;/FONT&gt;] 활성도 +2&lt;BR&gt;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;각성&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FE2E2E&#39;&gt;방어력 감소&lt;/FONT&gt;] 활성도 +2&quot;
+                     }
+                     },
+                     &quot;Element_009&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;품질 업그레이드 불가&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_010&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;Font color=&#39;#5FD3F1&#39;&gt;[카오스 던전] 파푸니카&lt;/font&gt;&lt;BR&gt;&lt;Font color=&#39;#5FD3F1&#39;&gt;[카오스 던전] 베른 남부&lt;/font&gt;&lt;BR&gt;&lt;Font color=&#39;#5FD3F1&#39;&gt;[필드 보스] 베른 남부 - 천둥날개&lt;/font&gt;&quot;
+                     }
+                     }" data-mine=""><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_208.png"
+                                          alt="비틀린 시간의 목걸이"></span>
+                    <span class="name">비틀린 시간의 목걸이</span>
+                    <span class="count">[구매 시 거래 <FONT COLOR='#7641CB'>2회</FONT> 가능]</span>
+                </div>
+                <div class="effect">
+                    <ul>
+                        <li><FONT COLOR='#222'>[전문의]</FONT> 활성도 <font color='#7641cb'>+2</font></li>
+                        <li><FONT COLOR='#222'>[각성]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#e40d30'>[방어력 감소]</FONT> 활성도 <font color='#7641cb'>+2</font></li>
+                    </ul>
+                    <ul>
+                        <li><font color='#222'>[치명]</font> <font color='#7641cb'>+442</font></li>
+                        <li><font color='#222'>[특화]</font> <font color='#7641cb'>+378</font></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="level">티어 3</div>
+            </td>
+            <td>
+                <div class="quality"><span class="bar"></span><span class="txt">67</span></div>
+            </td>
+            <td>
+                <div class="time">
+                    14시간 59분
+                </div>
+            </td>
+            <td>
+                <div class="price-row">
+                    <em>50</em><span class="tooltip">현재 최고가 <em>0</em></span>
+                </div>
+            </td>
+            <td>
+                <div class="price-buy">
+                    <em>
+                        -
+                    </em>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="button button--deal-buy" aria-haspopup="true" aria-controls="expand-buy"
+                        aria-expanded="false" data-productid="141503028">입찰 / 구매
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <!-- [D] data-grade 0 ~ 6 아이템 등급 표시. -->
+            <td>
+                <div class="grade" data-grade="4">
+                  <span class="slot" name="pcEquip" data-item="{
+                     &quot;Element_000&quot;: {
+                     &quot;type&quot;: &quot;NameTagBox&quot;,
+                     &quot;value&quot;: &quot;&lt;P ALIGN=&#39;CENTER&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;추락한 혼돈의 목걸이&lt;/FONT&gt;&lt;/P&gt;&quot;
+                     },
+                     &quot;Element_001&quot;: {
+                     &quot;type&quot;: &quot;ItemTitle&quot;,
+                     &quot;value&quot;: {
+                     &quot;leftStr0&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;전설 목걸이&lt;/FONT&gt;&lt;/FONT&gt;&quot;,
+                     &quot;leftStr1&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;품질&lt;/FONT&gt;&quot;,
+                     &quot;leftStr2&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;아이템 티어 3&lt;/FONT&gt;&quot;,
+                     &quot;qualityValue&quot;: 58,
+                     &quot;rightStr0&quot;: &quot;&quot;,
+                     &quot;slotData&quot;: {
+                     &quot;advBookIcon&quot;: 0,
+                     &quot;friendship&quot;: 0,
+                     &quot;iconGrade&quot;: 4,
+                     &quot;iconPath&quot;: &quot;EFUI_IconAtlas/Acc/Acc_211.png&quot;,
+                     &quot;imagePath&quot;: &quot;&quot;,
+                     &quot;islandIcon&quot;: 0,
+                     &quot;rtString&quot;: &quot;&quot;,
+                     &quot;seal&quot;: false,
+                     &quot;temporary&quot;: 0,
+                     &quot;town&quot;: 0,
+                     &quot;trash&quot;: 0
+                     }
+                     }
+                     },
+                     &quot;Element_002&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#FF0000&#39;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_003&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;귀속됨&lt;BR&gt;거래 &lt;FONT COLOR=&#39;#FFD200&#39;&gt;2&lt;/FONT&gt;회 가능&lt;BR&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;거래 제한 아이템 레벨&lt;/FONT&gt; 1370&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_004&quot;: {
+                     &quot;type&quot;: &quot;MultiTextBox&quot;,
+                     &quot;value&quot;: &quot;|거래가능&quot;
+                     },
+                     &quot;Element_005&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT COLOR=&#39;#FFD200&#39;&gt;단일 장착 가능&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_006&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;기본 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;힘 +7171&lt;BR&gt;민첩 +7171&lt;BR&gt;지능 +7171&lt;BR&gt;체력 +2322&quot;
+                     }
+                     },
+                     &quot;Element_007&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;추가 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;치명 +400&lt;BR&gt;신속 +397&quot;
+                     }
+                     },
+                     &quot;Element_008&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;무작위 각인 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;중갑 착용&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;각성&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FE2E2E&#39;&gt;공격력 감소&lt;/FONT&gt;] 활성도 +1&quot;
+                     }
+                     },
+                     &quot;Element_009&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;품질 업그레이드 불가&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_010&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;Font color=&#39;#5FD3F1&#39;&gt;[어비스 레이드] 아르고스&lt;/font&gt;&quot;
+                     }
+                     }" data-mine=""><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_211.png"
+                                          alt="추락한 혼돈의 목걸이"></span>
+                    <span class="name">추락한 혼돈의 목걸이</span>
+                    <span class="count">[구매 시 거래 <FONT COLOR='#7641CB'>1회</FONT> 가능]</span>
+                </div>
+                <div class="effect">
+                    <ul>
+                        <li><FONT COLOR='#222'>[중갑 착용]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#222'>[각성]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#e40d30'>[공격력 감소]</FONT> 활성도 <font color='#7641cb'>+1</font></li>
+                    </ul>
+                    <ul>
+                        <li><font color='#222'>[치명]</font> <font color='#7641cb'>+400</font></li>
+                        <li><font color='#222'>[신속]</font> <font color='#7641cb'>+397</font></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="level">티어 3</div>
+            </td>
+            <td>
+                <div class="quality"><span class="bar"></span><span class="txt">58</span></div>
+            </td>
+            <td>
+                <div class="time">
+                    1일
+                </div>
+            </td>
+            <td>
+                <div class="price-row">
+                    <em>700</em><span class="tooltip">현재 최고가 <em>0</em></span>
+                </div>
+            </td>
+            <td>
+                <div class="price-buy">
+                    <em>
+                        -
+                    </em>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="button button--deal-buy" aria-haspopup="true" aria-controls="expand-buy"
+                        aria-expanded="false" data-productid="140452669">입찰 / 구매
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <!-- [D] data-grade 0 ~ 6 아이템 등급 표시. -->
+            <td>
+                <div class="grade" data-grade="4">
+                  <span class="slot" name="pcEquip" data-item="{
+                     &quot;Element_000&quot;: {
+                     &quot;type&quot;: &quot;NameTagBox&quot;,
+                     &quot;value&quot;: &quot;&lt;P ALIGN=&#39;CENTER&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;빛나는 구도자의 목걸이&lt;/FONT&gt;&lt;/P&gt;&quot;
+                     },
+                     &quot;Element_001&quot;: {
+                     &quot;type&quot;: &quot;ItemTitle&quot;,
+                     &quot;value&quot;: {
+                     &quot;leftStr0&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;전설 목걸이&lt;/FONT&gt;&lt;/FONT&gt;&quot;,
+                     &quot;leftStr1&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;품질&lt;/FONT&gt;&quot;,
+                     &quot;leftStr2&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;아이템 티어 3&lt;/FONT&gt;&quot;,
+                     &quot;qualityValue&quot;: 95,
+                     &quot;rightStr0&quot;: &quot;&quot;,
+                     &quot;slotData&quot;: {
+                     &quot;advBookIcon&quot;: 0,
+                     &quot;friendship&quot;: 0,
+                     &quot;iconGrade&quot;: 4,
+                     &quot;iconPath&quot;: &quot;EFUI_IconAtlas/Acc/Acc_208.png&quot;,
+                     &quot;imagePath&quot;: &quot;&quot;,
+                     &quot;islandIcon&quot;: 0,
+                     &quot;rtString&quot;: &quot;&quot;,
+                     &quot;seal&quot;: false,
+                     &quot;temporary&quot;: 0,
+                     &quot;town&quot;: 0,
+                     &quot;trash&quot;: 0
+                     }
+                     }
+                     },
+                     &quot;Element_002&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#FF0000&#39;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_003&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;귀속됨&lt;BR&gt;거래 &lt;FONT COLOR=&#39;#FFD200&#39;&gt;3&lt;/FONT&gt;회 가능&lt;BR&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;거래 제한 아이템 레벨&lt;/FONT&gt; 1370&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_004&quot;: {
+                     &quot;type&quot;: &quot;MultiTextBox&quot;,
+                     &quot;value&quot;: &quot;|거래가능&quot;
+                     },
+                     &quot;Element_005&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT COLOR=&#39;#FFD200&#39;&gt;단일 장착 가능&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_006&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;기본 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;힘 +7171&lt;BR&gt;민첩 +7171&lt;BR&gt;지능 +7171&lt;BR&gt;체력 +2322&quot;
+                     }
+                     },
+                     &quot;Element_007&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;추가 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;치명 +442&lt;BR&gt;신속 +448&quot;
+                     }
+                     },
+                     &quot;Element_008&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;무작위 각인 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;예리한 둔기&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;각성&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FE2E2E&#39;&gt;방어력 감소&lt;/FONT&gt;] 활성도 +1&quot;
+                     }
+                     },
+                     &quot;Element_009&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;품질 업그레이드 불가&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_010&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;Font color=&#39;#5FD3F1&#39;&gt;[가디언 토벌] &lt;/font&gt;&quot;
+                     }
+                     }" data-mine=""><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_208.png"
+                                          alt="빛나는 구도자의 목걸이"></span>
+                    <span class="name">빛나는 구도자의 목걸이</span>
+                    <span class="count">[구매 시 거래 <FONT COLOR='#7641CB'>2회</FONT> 가능]</span>
+                </div>
+                <div class="effect">
+                    <ul>
+                        <li><FONT COLOR='#222'>[예리한 둔기]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#222'>[각성]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#e40d30'>[방어력 감소]</FONT> 활성도 <font color='#7641cb'>+1</font></li>
+                    </ul>
+                    <ul>
+                        <li><font color='#222'>[치명]</font> <font color='#7641cb'>+442</font></li>
+                        <li><font color='#222'>[신속]</font> <font color='#7641cb'>+448</font></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="level">티어 3</div>
+            </td>
+            <td>
+                <div class="quality"><span class="bar"></span><span class="txt">95</span></div>
+            </td>
+            <td>
+                <div class="time">
+                    14시간 7분
+                </div>
+            </td>
+            <td>
+                <div class="price-row">
+                    <em>800</em><span class="tooltip">현재 최고가 <em>0</em></span>
+                </div>
+            </td>
+            <td>
+                <div class="price-buy">
+                    <em>
+                        -
+                    </em>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="button button--deal-buy" aria-haspopup="true" aria-controls="expand-buy"
+                        aria-expanded="false" data-productid="141486184">입찰 / 구매
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <!-- [D] data-grade 0 ~ 6 아이템 등급 표시. -->
+            <td>
+                <div class="grade" data-grade="4">
+                  <span class="slot" name="pcEquip" data-item="{
+                     &quot;Element_000&quot;: {
+                     &quot;type&quot;: &quot;NameTagBox&quot;,
+                     &quot;value&quot;: &quot;&lt;P ALIGN=&#39;CENTER&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;비틀린 시간의 목걸이&lt;/FONT&gt;&lt;/P&gt;&quot;
+                     },
+                     &quot;Element_001&quot;: {
+                     &quot;type&quot;: &quot;ItemTitle&quot;,
+                     &quot;value&quot;: {
+                     &quot;leftStr0&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;전설 목걸이&lt;/FONT&gt;&lt;/FONT&gt;&quot;,
+                     &quot;leftStr1&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;품질&lt;/FONT&gt;&quot;,
+                     &quot;leftStr2&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;아이템 티어 3&lt;/FONT&gt;&quot;,
+                     &quot;qualityValue&quot;: 64,
+                     &quot;rightStr0&quot;: &quot;&quot;,
+                     &quot;slotData&quot;: {
+                     &quot;advBookIcon&quot;: 0,
+                     &quot;friendship&quot;: 0,
+                     &quot;iconGrade&quot;: 4,
+                     &quot;iconPath&quot;: &quot;EFUI_IconAtlas/Acc/Acc_208.png&quot;,
+                     &quot;imagePath&quot;: &quot;&quot;,
+                     &quot;islandIcon&quot;: 0,
+                     &quot;rtString&quot;: &quot;&quot;,
+                     &quot;seal&quot;: false,
+                     &quot;temporary&quot;: 0,
+                     &quot;town&quot;: 0,
+                     &quot;trash&quot;: 0
+                     }
+                     }
+                     },
+                     &quot;Element_002&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#FF0000&#39;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_003&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;귀속됨&lt;BR&gt;거래 &lt;FONT COLOR=&#39;#FFD200&#39;&gt;3&lt;/FONT&gt;회 가능&lt;BR&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;거래 제한 아이템 레벨&lt;/FONT&gt; 1370&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_004&quot;: {
+                     &quot;type&quot;: &quot;MultiTextBox&quot;,
+                     &quot;value&quot;: &quot;|거래가능&quot;
+                     },
+                     &quot;Element_005&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT COLOR=&#39;#FFD200&#39;&gt;단일 장착 가능&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_006&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;기본 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;힘 +7171&lt;BR&gt;민첩 +7171&lt;BR&gt;지능 +7171&lt;BR&gt;체력 +2322&quot;
+                     }
+                     },
+                     &quot;Element_007&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;추가 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;치명 +373&lt;BR&gt;신속 +439&quot;
+                     }
+                     },
+                     &quot;Element_008&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;무작위 각인 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;기습의 대가&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;각성&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FE2E2E&#39;&gt;이동속도 감소&lt;/FONT&gt;] 활성도 +1&quot;
+                     }
+                     },
+                     &quot;Element_009&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;품질 업그레이드 불가&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_010&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;Font color=&#39;#5FD3F1&#39;&gt;[카오스 던전] 파푸니카&lt;/font&gt;&lt;BR&gt;&lt;Font color=&#39;#5FD3F1&#39;&gt;[카오스 던전] 베른 남부&lt;/font&gt;&lt;BR&gt;&lt;Font color=&#39;#5FD3F1&#39;&gt;[필드 보스] 베른 남부 - 천둥날개&lt;/font&gt;&quot;
+                     }
+                     }" data-mine=""><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_208.png"
+                                          alt="비틀린 시간의 목걸이"></span>
+                    <span class="name">비틀린 시간의 목걸이</span>
+                    <span class="count">[구매 시 거래 <FONT COLOR='#7641CB'>2회</FONT> 가능]</span>
+                </div>
+                <div class="effect">
+                    <ul>
+                        <li><FONT COLOR='#222'>[기습의 대가]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#222'>[각성]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#e40d30'>[이동속도 감소]</FONT> 활성도 <font color='#7641cb'>+1</font></li>
+                    </ul>
+                    <ul>
+                        <li><font color='#222'>[치명]</font> <font color='#7641cb'>+373</font></li>
+                        <li><font color='#222'>[신속]</font> <font color='#7641cb'>+439</font></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="level">티어 3</div>
+            </td>
+            <td>
+                <div class="quality"><span class="bar"></span><span class="txt">64</span></div>
+            </td>
+            <td>
+                <div class="time">
+                    1일
+                </div>
+            </td>
+            <td>
+                <div class="price-row">
+                    <em>10</em><span class="tooltip">현재 최고가 <em>0</em></span>
+                </div>
+            </td>
+            <td>
+                <div class="price-buy">
+                    <em>
+                        10
+                    </em>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="button button--deal-buy" aria-haspopup="true" aria-controls="expand-buy"
+                        aria-expanded="false" data-productid="140581314">입찰 / 구매
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <!-- [D] data-grade 0 ~ 6 아이템 등급 표시. -->
+            <td>
+                <div class="grade" data-grade="4">
+                  <span class="slot" name="pcEquip" data-item="{
+                     &quot;Element_000&quot;: {
+                     &quot;type&quot;: &quot;NameTagBox&quot;,
+                     &quot;value&quot;: &quot;&lt;P ALIGN=&#39;CENTER&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;비틀린 시간의 목걸이&lt;/FONT&gt;&lt;/P&gt;&quot;
+                     },
+                     &quot;Element_001&quot;: {
+                     &quot;type&quot;: &quot;ItemTitle&quot;,
+                     &quot;value&quot;: {
+                     &quot;leftStr0&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;전설 목걸이&lt;/FONT&gt;&lt;/FONT&gt;&quot;,
+                     &quot;leftStr1&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;품질&lt;/FONT&gt;&quot;,
+                     &quot;leftStr2&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;아이템 티어 3&lt;/FONT&gt;&quot;,
+                     &quot;qualityValue&quot;: 50,
+                     &quot;rightStr0&quot;: &quot;&quot;,
+                     &quot;slotData&quot;: {
+                     &quot;advBookIcon&quot;: 0,
+                     &quot;friendship&quot;: 0,
+                     &quot;iconGrade&quot;: 4,
+                     &quot;iconPath&quot;: &quot;EFUI_IconAtlas/Acc/Acc_208.png&quot;,
+                     &quot;imagePath&quot;: &quot;&quot;,
+                     &quot;islandIcon&quot;: 0,
+                     &quot;rtString&quot;: &quot;&quot;,
+                     &quot;seal&quot;: false,
+                     &quot;temporary&quot;: 0,
+                     &quot;town&quot;: 0,
+                     &quot;trash&quot;: 0
+                     }
+                     }
+                     },
+                     &quot;Element_002&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#FF0000&#39;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_003&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;귀속됨&lt;BR&gt;거래 &lt;FONT COLOR=&#39;#FFD200&#39;&gt;3&lt;/FONT&gt;회 가능&lt;BR&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;거래 제한 아이템 레벨&lt;/FONT&gt; 1370&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_004&quot;: {
+                     &quot;type&quot;: &quot;MultiTextBox&quot;,
+                     &quot;value&quot;: &quot;|거래가능&quot;
+                     },
+                     &quot;Element_005&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT COLOR=&#39;#FFD200&#39;&gt;단일 장착 가능&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_006&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;기본 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;힘 +7171&lt;BR&gt;민첩 +7171&lt;BR&gt;지능 +7171&lt;BR&gt;체력 +2322&quot;
+                     }
+                     },
+                     &quot;Element_007&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;추가 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;치명 +429&lt;BR&gt;특화 +347&quot;
+                     }
+                     },
+                     &quot;Element_008&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;무작위 각인 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;슈퍼 차지&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;각성&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FE2E2E&#39;&gt;공격속도 감소&lt;/FONT&gt;] 활성도 +2&quot;
+                     }
+                     },
+                     &quot;Element_009&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;품질 업그레이드 불가&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_010&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;Font color=&#39;#5FD3F1&#39;&gt;[카오스 던전] 파푸니카&lt;/font&gt;&lt;BR&gt;&lt;Font color=&#39;#5FD3F1&#39;&gt;[카오스 던전] 베른 남부&lt;/font&gt;&lt;BR&gt;&lt;Font color=&#39;#5FD3F1&#39;&gt;[필드 보스] 베른 남부 - 천둥날개&lt;/font&gt;&quot;
+                     }
+                     }" data-mine=""><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_208.png"
+                                          alt="비틀린 시간의 목걸이"></span>
+                    <span class="name">비틀린 시간의 목걸이</span>
+                    <span class="count">[구매 시 거래 <FONT COLOR='#7641CB'>2회</FONT> 가능]</span>
+                </div>
+                <div class="effect">
+                    <ul>
+                        <li><FONT COLOR='#222'>[슈퍼 차지]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#222'>[각성]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#e40d30'>[공격속도 감소]</FONT> 활성도 <font color='#7641cb'>+2</font></li>
+                    </ul>
+                    <ul>
+                        <li><font color='#222'>[치명]</font> <font color='#7641cb'>+429</font></li>
+                        <li><font color='#222'>[특화]</font> <font color='#7641cb'>+347</font></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="level">티어 3</div>
+            </td>
+            <td>
+                <div class="quality"><span class="bar"></span><span class="txt">50</span></div>
+            </td>
+            <td>
+                <div class="time">
+                    23시간 19분
+                </div>
+            </td>
+            <td>
+                <div class="price-row">
+                    <em>10</em><span class="tooltip">현재 최고가 <em>0</em></span>
+                </div>
+            </td>
+            <td>
+                <div class="price-buy">
+                    <em>
+                        30
+                    </em>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="button button--deal-buy" aria-haspopup="true" aria-controls="expand-buy"
+                        aria-expanded="false" data-productid="141634443">입찰 / 구매
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <!-- [D] data-grade 0 ~ 6 아이템 등급 표시. -->
+            <td>
+                <div class="grade" data-grade="4">
+                  <span class="slot" name="pcEquip" data-item="{
+                     &quot;Element_000&quot;: {
+                     &quot;type&quot;: &quot;NameTagBox&quot;,
+                     &quot;value&quot;: &quot;&lt;P ALIGN=&#39;CENTER&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;추락한 혼돈의 목걸이&lt;/FONT&gt;&lt;/P&gt;&quot;
+                     },
+                     &quot;Element_001&quot;: {
+                     &quot;type&quot;: &quot;ItemTitle&quot;,
+                     &quot;value&quot;: {
+                     &quot;leftStr0&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;전설 목걸이&lt;/FONT&gt;&lt;/FONT&gt;&quot;,
+                     &quot;leftStr1&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;품질&lt;/FONT&gt;&quot;,
+                     &quot;leftStr2&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;아이템 티어 3&lt;/FONT&gt;&quot;,
+                     &quot;qualityValue&quot;: 74,
+                     &quot;rightStr0&quot;: &quot;&quot;,
+                     &quot;slotData&quot;: {
+                     &quot;advBookIcon&quot;: 0,
+                     &quot;friendship&quot;: 0,
+                     &quot;iconGrade&quot;: 4,
+                     &quot;iconPath&quot;: &quot;EFUI_IconAtlas/Acc/Acc_211.png&quot;,
+                     &quot;imagePath&quot;: &quot;&quot;,
+                     &quot;islandIcon&quot;: 0,
+                     &quot;rtString&quot;: &quot;&quot;,
+                     &quot;seal&quot;: false,
+                     &quot;temporary&quot;: 0,
+                     &quot;town&quot;: 0,
+                     &quot;trash&quot;: 0
+                     }
+                     }
+                     },
+                     &quot;Element_002&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#FF0000&#39;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_003&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;귀속됨&lt;BR&gt;거래 &lt;FONT COLOR=&#39;#FFD200&#39;&gt;3&lt;/FONT&gt;회 가능&lt;BR&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;거래 제한 아이템 레벨&lt;/FONT&gt; 1370&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_004&quot;: {
+                     &quot;type&quot;: &quot;MultiTextBox&quot;,
+                     &quot;value&quot;: &quot;|거래가능&quot;
+                     },
+                     &quot;Element_005&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT COLOR=&#39;#FFD200&#39;&gt;단일 장착 가능&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_006&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;기본 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;힘 +7171&lt;BR&gt;민첩 +7171&lt;BR&gt;지능 +7171&lt;BR&gt;체력 +2322&quot;
+                     }
+                     },
+                     &quot;Element_007&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;추가 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;치명 +393&lt;BR&gt;특화 +443&quot;
+                     }
+                     },
+                     &quot;Element_008&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;무작위 각인 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;각성&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;강령술&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FE2E2E&#39;&gt;공격력 감소&lt;/FONT&gt;] 활성도 +2&quot;
+                     }
+                     },
+                     &quot;Element_009&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;품질 업그레이드 불가&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_010&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;Font color=&#39;#5FD3F1&#39;&gt;[어비스 레이드] 아르고스&lt;/font&gt;&quot;
+                     }
+                     }" data-mine=""><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_211.png"
+                                          alt="추락한 혼돈의 목걸이"></span>
+                    <span class="name">추락한 혼돈의 목걸이</span>
+                    <span class="count">[구매 시 거래 <FONT COLOR='#7641CB'>2회</FONT> 가능]</span>
+                </div>
+                <div class="effect">
+                    <ul>
+                        <li><FONT COLOR='#222'>[각성]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#222'>[강령술]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#e40d30'>[공격력 감소]</FONT> 활성도 <font color='#7641cb'>+2</font></li>
+                    </ul>
+                    <ul>
+                        <li><font color='#222'>[치명]</font> <font color='#7641cb'>+393</font></li>
+                        <li><font color='#222'>[특화]</font> <font color='#7641cb'>+443</font></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="level">티어 3</div>
+            </td>
+            <td>
+                <div class="quality"><span class="bar"></span><span class="txt">74</span></div>
+            </td>
+            <td>
+                <div class="time">
+                    2일
+                </div>
+            </td>
+            <td>
+                <div class="price-row">
+                    <em>10</em><span class="tooltip">현재 최고가 <em>0</em></span>
+                </div>
+            </td>
+            <td>
+                <div class="price-buy">
+                    <em>
+                        30
+                    </em>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="button button--deal-buy" aria-haspopup="true" aria-controls="expand-buy"
+                        aria-expanded="false" data-productid="141085474">입찰 / 구매
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <!-- [D] data-grade 0 ~ 6 아이템 등급 표시. -->
+            <td>
+                <div class="grade" data-grade="4">
+                  <span class="slot" name="pcEquip" data-item="{
+                     &quot;Element_000&quot;: {
+                     &quot;type&quot;: &quot;NameTagBox&quot;,
+                     &quot;value&quot;: &quot;&lt;P ALIGN=&#39;CENTER&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;빛나는 구도자의 목걸이&lt;/FONT&gt;&lt;/P&gt;&quot;
+                     },
+                     &quot;Element_001&quot;: {
+                     &quot;type&quot;: &quot;ItemTitle&quot;,
+                     &quot;value&quot;: {
+                     &quot;leftStr0&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;전설 목걸이&lt;/FONT&gt;&lt;/FONT&gt;&quot;,
+                     &quot;leftStr1&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;품질&lt;/FONT&gt;&quot;,
+                     &quot;leftStr2&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;아이템 티어 3&lt;/FONT&gt;&quot;,
+                     &quot;qualityValue&quot;: 66,
+                     &quot;rightStr0&quot;: &quot;&quot;,
+                     &quot;slotData&quot;: {
+                     &quot;advBookIcon&quot;: 0,
+                     &quot;friendship&quot;: 0,
+                     &quot;iconGrade&quot;: 4,
+                     &quot;iconPath&quot;: &quot;EFUI_IconAtlas/Acc/Acc_208.png&quot;,
+                     &quot;imagePath&quot;: &quot;&quot;,
+                     &quot;islandIcon&quot;: 0,
+                     &quot;rtString&quot;: &quot;&quot;,
+                     &quot;seal&quot;: false,
+                     &quot;temporary&quot;: 0,
+                     &quot;town&quot;: 0,
+                     &quot;trash&quot;: 0
+                     }
+                     }
+                     },
+                     &quot;Element_002&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#FF0000&#39;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_003&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;귀속됨&lt;BR&gt;거래 &lt;FONT COLOR=&#39;#FFD200&#39;&gt;3&lt;/FONT&gt;회 가능&lt;BR&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;거래 제한 아이템 레벨&lt;/FONT&gt; 1370&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_004&quot;: {
+                     &quot;type&quot;: &quot;MultiTextBox&quot;,
+                     &quot;value&quot;: &quot;|거래가능&quot;
+                     },
+                     &quot;Element_005&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT COLOR=&#39;#FFD200&#39;&gt;단일 장착 가능&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_006&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;기본 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;힘 +7171&lt;BR&gt;민첩 +7171&lt;BR&gt;지능 +7171&lt;BR&gt;체력 +2322&quot;
+                     }
+                     },
+                     &quot;Element_007&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;추가 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;치명 +443&lt;BR&gt;신속 +373&quot;
+                     }
+                     },
+                     &quot;Element_008&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;무작위 각인 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;아드레날린&lt;/FONT&gt;] 활성도 +2&lt;BR&gt;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;각성&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FE2E2E&#39;&gt;공격속도 감소&lt;/FONT&gt;] 활성도 +3&quot;
+                     }
+                     },
+                     &quot;Element_009&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;품질 업그레이드 불가&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_010&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;Font color=&#39;#5FD3F1&#39;&gt;[가디언 토벌] &lt;/font&gt;&quot;
+                     }
+                     }" data-mine=""><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_208.png"
+                                          alt="빛나는 구도자의 목걸이"></span>
+                    <span class="name">빛나는 구도자의 목걸이</span>
+                    <span class="count">[구매 시 거래 <FONT COLOR='#7641CB'>2회</FONT> 가능]</span>
+                </div>
+                <div class="effect">
+                    <ul>
+                        <li><FONT COLOR='#222'>[아드레날린]</FONT> 활성도 <font color='#7641cb'>+2</font></li>
+                        <li><FONT COLOR='#222'>[각성]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#e40d30'>[공격속도 감소]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                    </ul>
+                    <ul>
+                        <li><font color='#222'>[치명]</font> <font color='#7641cb'>+443</font></li>
+                        <li><font color='#222'>[신속]</font> <font color='#7641cb'>+373</font></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="level">티어 3</div>
+            </td>
+            <td>
+                <div class="quality"><span class="bar"></span><span class="txt">66</span></div>
+            </td>
+            <td>
+                <div class="time">
+                    2일
+                </div>
+            </td>
+            <td>
+                <div class="price-row">
+                    <em>40</em><span class="tooltip">현재 최고가 <em>0</em></span>
+                </div>
+            </td>
+            <td>
+                <div class="price-buy">
+                    <em>
+                        40
+                    </em>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="button button--deal-buy" aria-haspopup="true" aria-controls="expand-buy"
+                        aria-expanded="false" data-productid="141123307">입찰 / 구매
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <!-- [D] data-grade 0 ~ 6 아이템 등급 표시. -->
+            <td>
+                <div class="grade" data-grade="4">
+                  <span class="slot" name="pcEquip" data-item="{
+                     &quot;Element_000&quot;: {
+                     &quot;type&quot;: &quot;NameTagBox&quot;,
+                     &quot;value&quot;: &quot;&lt;P ALIGN=&#39;CENTER&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;추락한 혼돈의 목걸이&lt;/FONT&gt;&lt;/P&gt;&quot;
+                     },
+                     &quot;Element_001&quot;: {
+                     &quot;type&quot;: &quot;ItemTitle&quot;,
+                     &quot;value&quot;: {
+                     &quot;leftStr0&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;전설 목걸이&lt;/FONT&gt;&lt;/FONT&gt;&quot;,
+                     &quot;leftStr1&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;품질&lt;/FONT&gt;&quot;,
+                     &quot;leftStr2&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;아이템 티어 3&lt;/FONT&gt;&quot;,
+                     &quot;qualityValue&quot;: 75,
+                     &quot;rightStr0&quot;: &quot;&quot;,
+                     &quot;slotData&quot;: {
+                     &quot;advBookIcon&quot;: 0,
+                     &quot;friendship&quot;: 0,
+                     &quot;iconGrade&quot;: 4,
+                     &quot;iconPath&quot;: &quot;EFUI_IconAtlas/Acc/Acc_211.png&quot;,
+                     &quot;imagePath&quot;: &quot;&quot;,
+                     &quot;islandIcon&quot;: 0,
+                     &quot;rtString&quot;: &quot;&quot;,
+                     &quot;seal&quot;: false,
+                     &quot;temporary&quot;: 0,
+                     &quot;town&quot;: 0,
+                     &quot;trash&quot;: 0
+                     }
+                     }
+                     },
+                     &quot;Element_002&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#FF0000&#39;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_003&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;귀속됨&lt;BR&gt;거래 &lt;FONT COLOR=&#39;#FFD200&#39;&gt;3&lt;/FONT&gt;회 가능&lt;BR&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;거래 제한 아이템 레벨&lt;/FONT&gt; 1370&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_004&quot;: {
+                     &quot;type&quot;: &quot;MultiTextBox&quot;,
+                     &quot;value&quot;: &quot;|거래가능&quot;
+                     },
+                     &quot;Element_005&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT COLOR=&#39;#FFD200&#39;&gt;단일 장착 가능&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_006&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;기본 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;힘 +7171&lt;BR&gt;민첩 +7171&lt;BR&gt;지능 +7171&lt;BR&gt;체력 +2322&quot;
+                     }
+                     },
+                     &quot;Element_007&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;추가 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;치명 +432&lt;BR&gt;특화 +408&quot;
+                     }
+                     },
+                     &quot;Element_008&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;무작위 각인 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;중갑 착용&lt;/FONT&gt;] 활성도 +2&lt;BR&gt;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;각성&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FE2E2E&#39;&gt;이동속도 감소&lt;/FONT&gt;] 활성도 +1&quot;
+                     }
+                     },
+                     &quot;Element_009&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;품질 업그레이드 불가&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_010&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;Font color=&#39;#5FD3F1&#39;&gt;[어비스 레이드] 아르고스&lt;/font&gt;&quot;
+                     }
+                     }" data-mine=""><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_211.png"
+                                          alt="추락한 혼돈의 목걸이"></span>
+                    <span class="name">추락한 혼돈의 목걸이</span>
+                    <span class="count">[구매 시 거래 <FONT COLOR='#7641CB'>2회</FONT> 가능]</span>
+                </div>
+                <div class="effect">
+                    <ul>
+                        <li><FONT COLOR='#222'>[중갑 착용]</FONT> 활성도 <font color='#7641cb'>+2</font></li>
+                        <li><FONT COLOR='#222'>[각성]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#e40d30'>[이동속도 감소]</FONT> 활성도 <font color='#7641cb'>+1</font></li>
+                    </ul>
+                    <ul>
+                        <li><font color='#222'>[치명]</font> <font color='#7641cb'>+432</font></li>
+                        <li><font color='#222'>[특화]</font> <font color='#7641cb'>+408</font></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="level">티어 3</div>
+            </td>
+            <td>
+                <div class="quality"><span class="bar"></span><span class="txt">75</span></div>
+            </td>
+            <td>
+                <div class="time">
+                    8시간 9분
+                </div>
+            </td>
+            <td>
+                <div class="price-row">
+                    <em>50</em><span class="tooltip">현재 최고가 <em>0</em></span>
+                </div>
+            </td>
+            <td>
+                <div class="price-buy">
+                    <em>
+                        50
+                    </em>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="button button--deal-buy" aria-haspopup="true" aria-controls="expand-buy"
+                        aria-expanded="false" data-productid="141205287">입찰 / 구매
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <!-- [D] data-grade 0 ~ 6 아이템 등급 표시. -->
+            <td>
+                <div class="grade" data-grade="4">
+                  <span class="slot" name="pcEquip" data-item="{
+                     &quot;Element_000&quot;: {
+                     &quot;type&quot;: &quot;NameTagBox&quot;,
+                     &quot;value&quot;: &quot;&lt;P ALIGN=&#39;CENTER&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;비틀린 시간의 목걸이&lt;/FONT&gt;&lt;/P&gt;&quot;
+                     },
+                     &quot;Element_001&quot;: {
+                     &quot;type&quot;: &quot;ItemTitle&quot;,
+                     &quot;value&quot;: {
+                     &quot;leftStr0&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#F99200&#39;&gt;전설 목걸이&lt;/FONT&gt;&lt;/FONT&gt;&quot;,
+                     &quot;leftStr1&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;품질&lt;/FONT&gt;&quot;,
+                     &quot;leftStr2&quot;: &quot;&lt;FONT SIZE=&#39;14&#39;&gt;아이템 티어 3&lt;/FONT&gt;&quot;,
+                     &quot;qualityValue&quot;: 65,
+                     &quot;rightStr0&quot;: &quot;&quot;,
+                     &quot;slotData&quot;: {
+                     &quot;advBookIcon&quot;: 0,
+                     &quot;friendship&quot;: 0,
+                     &quot;iconGrade&quot;: 4,
+                     &quot;iconPath&quot;: &quot;EFUI_IconAtlas/Acc/Acc_208.png&quot;,
+                     &quot;imagePath&quot;: &quot;&quot;,
+                     &quot;islandIcon&quot;: 0,
+                     &quot;rtString&quot;: &quot;&quot;,
+                     &quot;seal&quot;: false,
+                     &quot;temporary&quot;: 0,
+                     &quot;town&quot;: 0,
+                     &quot;trash&quot;: 0
+                     }
+                     }
+                     },
+                     &quot;Element_002&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#FF0000&#39;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_003&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;귀속됨&lt;BR&gt;거래 &lt;FONT COLOR=&#39;#FFD200&#39;&gt;3&lt;/FONT&gt;회 가능&lt;BR&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;거래 제한 아이템 레벨&lt;/FONT&gt; 1370&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_004&quot;: {
+                     &quot;type&quot;: &quot;MultiTextBox&quot;,
+                     &quot;value&quot;: &quot;|거래가능&quot;
+                     },
+                     &quot;Element_005&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT COLOR=&#39;#FFD200&#39;&gt;단일 장착 가능&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_006&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;기본 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;힘 +7171&lt;BR&gt;민첩 +7171&lt;BR&gt;지능 +7171&lt;BR&gt;체력 +2322&quot;
+                     }
+                     },
+                     &quot;Element_007&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;추가 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;치명 +369&lt;BR&gt;특화 +445&quot;
+                     }
+                     },
+                     &quot;Element_008&quot;: {
+                     &quot;type&quot;: &quot;ItemPartBox&quot;,
+                     &quot;value&quot;: {
+                     &quot;Element_000&quot;: &quot;&lt;FONT COLOR=&#39;#A9D0F5&#39;&gt;무작위 각인 효과&lt;/FONT&gt;&quot;,
+                     &quot;Element_001&quot;: &quot;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;예리한 둔기&lt;/FONT&gt;] 활성도 +2&lt;BR&gt;[&lt;FONT COLOR=&#39;#FFFFAC&#39;&gt;각성&lt;/FONT&gt;] 활성도 +3&lt;BR&gt;[&lt;FONT COLOR=&#39;#FE2E2E&#39;&gt;이동속도 감소&lt;/FONT&gt;] 활성도 +3&quot;
+                     }
+                     },
+                     &quot;Element_009&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;FONT SIZE=&#39;12&#39;&gt;&lt;FONT COLOR=&#39;#C24B46&#39;&gt;품질 업그레이드 불가&lt;/FONT&gt;&lt;/FONT&gt;&quot;
+                     },
+                     &quot;Element_010&quot;: {
+                     &quot;type&quot;: &quot;SingleTextBox&quot;,
+                     &quot;value&quot;: &quot;&lt;Font color=&#39;#5FD3F1&#39;&gt;[카오스 던전] 파푸니카&lt;/font&gt;&lt;BR&gt;&lt;Font color=&#39;#5FD3F1&#39;&gt;[카오스 던전] 베른 남부&lt;/font&gt;&lt;BR&gt;&lt;Font color=&#39;#5FD3F1&#39;&gt;[필드 보스] 베른 남부 - 천둥날개&lt;/font&gt;&quot;
+                     }
+                     }" data-mine=""><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_208.png"
+                                          alt="비틀린 시간의 목걸이"></span>
+                    <span class="name">비틀린 시간의 목걸이</span>
+                    <span class="count">[구매 시 거래 <FONT COLOR='#7641CB'>2회</FONT> 가능]</span>
+                </div>
+                <div class="effect">
+                    <ul>
+                        <li><FONT COLOR='#222'>[예리한 둔기]</FONT> 활성도 <font color='#7641cb'>+2</font></li>
+                        <li><FONT COLOR='#222'>[각성]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                        <li><FONT COLOR='#e40d30'>[이동속도 감소]</FONT> 활성도 <font color='#7641cb'>+3</font></li>
+                    </ul>
+                    <ul>
+                        <li><font color='#222'>[치명]</font> <font color='#7641cb'>+369</font></li>
+                        <li><font color='#222'>[특화]</font> <font color='#7641cb'>+445</font></li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="level">티어 3</div>
+            </td>
+            <td>
+                <div class="quality"><span class="bar"></span><span class="txt">65</span></div>
+            </td>
+            <td>
+                <div class="time">
+                    9시간 18분
+                </div>
+            </td>
+            <td>
+                <div class="price-row">
+                    <em>50</em><span class="tooltip">현재 최고가 <em>0</em></span>
+                </div>
+            </td>
+            <td>
+                <div class="price-buy">
+                    <em>
+                        50
+                    </em>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="button button--deal-buy" aria-haspopup="true" aria-controls="expand-buy"
+                        aria-expanded="false" data-productid="141266756">입찰 / 구매
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- 페이징 -->
+<div class="pagination" aria-label="페이지네이션">
+    <a href="javascript: void(0);" class="pagination__first" disabled>처음</a>
+    <a href="javascript: void(0);" class="pagination__prev" disabled>이전</a>
+    <em class="pagination__number pagination__number--active" aria-label="현재 페이지">1</em>
+    <a href="javascript: void(0);" class="pagination__number" onclick="paging.page(2);">2</a>
+    <a href="javascript: void(0);" class="pagination__number" onclick="paging.page(3);">3</a>
+    <a href="javascript: void(0);" class="pagination__number" onclick="paging.page(4);">4</a>
+    <a href="javascript: void(0);" class="pagination__number" onclick="paging.page(5);">5</a>
+    <a href="javascript: void(0);" class="pagination__number" onclick="paging.page(6);">6</a>
+    <a href="javascript: void(0);" class="pagination__number" onclick="paging.page(7);">7</a>
+    <a href="javascript: void(0);" class="pagination__number" onclick="paging.page(8);">8</a>
+    <a href="javascript: void(0);" class="pagination__number" onclick="paging.page(9);">9</a>
+    <a href="javascript: void(0);" class="pagination__number" onclick="paging.page(10);">10</a>
+    <a href="javascript: void(0);" class="pagination__next" onclick="paging.page(11);">다음</a>
+    <a href="javascript: void(0);" class="pagination__last" onclick="paging.page(16);">마지막</a>
+</div>
+<!-- // 페이징 -->
+<script>
+    var _parameter = ''
+</script>
+</body>
+</html>

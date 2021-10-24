@@ -1,0 +1,17 @@
+.table thead th{
+    font-size: .65rem;
+    padding: 4px 4px 4px 4px !important;
+}
+.table thead th.th-seal{
+    cursor:pointer;
+}
+.table tbody td{
+    font-size: .65rem;
+    padding: 4px 4px 4px 4px !important;
+}
+.table tbody td p{
+    font-size: .65rem;
+}
+table tr i{
+    vertical-align: middle;
+}
