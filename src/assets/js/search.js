@@ -20,21 +20,35 @@ $(function () {
     }
 
     function search(rowNum, page) {
-        console.log('search', rowNum, page);
-        const item = readyItem(rowNum, page);
-        console.log(item);
-        if (item) {
-            chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-                var activeTab = tabs[0];
-                var activeTabId = activeTab.id;
-                chrome.tabs.sendMessage(activeTabId, item, response => {
-                    if (chrome.runtime.lastError) return;
-                    //console.log('response', response);
-                    //console.log('response data', response.data);
-                    createTable(item, response.data);
-                });
-            });
-        }
+
+        const activeTabId = Number(new URLSearchParams(location.search).get('tabId'));
+        console.log(activeTabId);
+         const item = readyItem(rowNum, page);
+         if (item) {
+             chrome.tabs.sendMessage(activeTabId, item, response => {
+                 if (chrome.runtime.lastError) return;
+                 //console.log('response', response);
+                 //console.log('response data', response.data);
+                 createTable(item, response.data);
+             });
+         }
+        /* console.log('search', rowNum, page);
+         const item = readyItem(rowNum, page);
+         console.log(item);
+         if (item) {
+             chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+                 console.log('tabs', tabs);
+                 console.log('chrome.windows', chrome, chrome.windows);
+                 var activeTab = tabs[0];
+                 var activeTabId = activeTab.id;
+                 chrome.tabs.sendMessage(activeTabId, item, response => {
+                     if (chrome.runtime.lastError) return;
+                     //console.log('response', response);
+                     //console.log('response data', response.data);
+                     createTable(item, response.data);
+                 });
+             });
+         }*/
         /*createTable(item, {
             "acc": [
                 {

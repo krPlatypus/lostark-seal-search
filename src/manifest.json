@@ -3,10 +3,12 @@
   "description": "설명 무",
   "version": "0.1",
   "manifest_version": 3,
-  "action": {
-    "default_title": "Lostark 각인 경매장",
-    "default_icon": "icon.png",
-    "default_popup": "index.html"
+  "action": {},
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
   },
   "permissions": [
     "activeTab"
