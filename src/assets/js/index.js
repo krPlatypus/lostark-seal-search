@@ -203,7 +203,17 @@ $(function () {
 
     // 각인 select 추가
     $('select.number').each((i, v) => {
-        $(v).append(numberOptions);
+        for(let i = 0; i <= 6; i++){
+            $(v).append(`<option value="${i}">${i > 0 ? '+' : ''}${i}</option>`);
+        }
+        const head = $(v).closest('tr').find('td:nth-child(1)').text();
+        console.log(head);
+        if(head.indexOf('각인') >= 0 || head.indexOf('돌') >= 0){
+            for(let i = 6; i <= 12; i++){
+                $(v).append(`<option value="${i}">${i > 0 ? '+' : ''}${i}</option>`);
+            }
+        }
+        //$(v).append(numberOptions);
     });
 
     // 디버프 select 추가
