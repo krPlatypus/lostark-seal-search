@@ -110,23 +110,15 @@ const imprintOption = {
 $(function () {
     const tbody = $('#tableTbody');
     //const rows = ['목걸이', '귀걸이1', '귀걸이2', '반지1', '반지2', '각인1', '각인2', '돌'];
-    const rows = [{title: '목걸이', code: category.목걸이}, {title: '귀걸이1', code: category.귀걸이}, {
-        title: '귀걸이2',
-        code: category.귀걸이
-    }, {title: '반지1', code: category.반지}, {
-        title: '반지2',
-        code: category.반지2
-    }, {title: '각인1'}, {title: '각인2'}, {title: '돌'},]
-    // 지역 변수 라인
-    const numberOptions = `
-        <option value="0">0</option>
-        <option value="1">+1</option>
-        <option value="2">+2</option>
-        <option value="3">+3</option>
-        <option value="4">+4</option>
-        <option value="5">+5</option>
-        <option value="6">+6</option>
-    `;
+    const rows = [
+            {title: '목걸이', code: category.목걸이},
+        {title: '귀걸이1', code: category.귀걸이},
+        {title: '귀걸이2', code: category.귀걸이},
+        {title: '반지1', code: category.반지}, {
+        title: '반지2', code: category.반지},
+        {title: '각인1'},
+        {title: '각인2'}, {title: '돌'}]
+
     const seals = {
         damage: '공격력감소',
         attackspeed: '공격속도감소',
@@ -203,16 +195,15 @@ $(function () {
 
     // 각인 select 추가
     $('select.number').each((i, v) => {
-        for(let i = 0; i <= 6; i++){
+        for (let i = 0; i <= 6; i++) {
             $(v).append(`<option value="${i}">${i > 0 ? '+' : ''}${i}</option>`);
         }
         const head = $(v).closest('tr').find('td:nth-child(1)').text();
-        if(head.indexOf('각인') >= 0 || head.indexOf('돌') >= 0){
-            for(let i = 6; i <= 12; i++){
+        if (head.indexOf('각인') >= 0 || head.indexOf('돌') >= 0) {
+            for (let i = 6; i <= 12; i++) {
                 $(v).append(`<option value="${i}">${i > 0 ? '+' : ''}${i}</option>`);
             }
         }
-        //$(v).append(numberOptions);
     });
 
     // 디버프 select 추가
@@ -256,6 +247,12 @@ $(function () {
         const index = $(this).closest('td').index();
         const nth = index + 1;
         const tr = tbody.find('tr');
+        const thisVal = Number($(this).val());
+        if(thisVal && !isNaN(thisVal) && thisVal > 0){
+            $(this).addClass("plus");
+        }else{
+            $(this).removeClass("plus");
+        }
         let count = 0;
         tr.each((i, v) => {
             if (i < tr.length - 1) {
@@ -265,22 +262,22 @@ $(function () {
                 }
             }
         });
-        const totalTd = tr.eq(tr.length-1).find(`td:nth-child(${nth})`);
+        const totalTd = tr.eq(tr.length - 1).find(`td:nth-child(${nth})`);
         totalTd.text(count);
         totalTd.removeAttr('class');
-        if(count > 15){
+        if (count > 15) {
             totalTd.addClass(`seal_over`);
-        }else if(count === 15){
+        } else if (count === 15) {
             totalTd.addClass(`seal3`);
-        }else if(count < 15 && count > 10){
+        } else if (count < 15 && count > 10) {
             totalTd.addClass(`seal_strange`);
-        }else if(count === 10){
+        } else if (count === 10) {
             totalTd.addClass(`seal2`);
-        }else if(count < 10 && count > 5){
+        } else if (count < 10 && count > 5) {
             totalTd.addClass(`seal_strange`);
-        }else if(count === 5){
+        } else if (count === 5) {
             totalTd.addClass(`seal1`);
-        }else{
+        } else {
             totalTd.addClass(`seal_under`);
         }
     });

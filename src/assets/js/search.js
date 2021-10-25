@@ -1,19 +1,28 @@
 $(function () {
-    const tableBody = $('#tableTbody');
     const searchBtn = $('#searchBtn');
     const searchRow = $('#searchRow');
 
     searchBtn.off('click').on('click', function () {
         $('table[data-category]').closest('div.col').remove();
-        for(let i = 1; i <= 5; i++){
-            search(i, 1);
-        }
+        startSearch().then(r => console.log('then', r));
     });
 
+    async function startSearch() {
+        const searchList = [1, 2, 3, 4, 5];
+        for await (let i of searchList) {
+            await search(i, 1);
+            await sleep(3200);
+        }
+    }
+
+    function sleep(t){
+        return new Promise(resolve=>setTimeout(resolve,t));
+    }
+
     function search(rowNum, page) {
-        //console.log('search', rowNum, page);
+        console.log('search', rowNum, page);
         const item = readyItem(rowNum, page);
-        //console.log('search', item);
+        console.log(item);
         if (item) {
             chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
                 var activeTab = tabs[0];
@@ -329,7 +338,7 @@ $(function () {
         seals.each((i, v) => {
             const index = $(v).closest('td').index();
             const min = Number($(v).val());
-            const seal = tableBody.closest('table').find(`thead th:eq(${index})`).text();
+            const seal = $('#tableTbody').closest('table').find(`thead th:eq(${index})`).text();
             if (min === 0 || seal.indexOf('각인') >= 0) {
                 return true;
             }
@@ -355,7 +364,7 @@ $(function () {
 
     function readyItem(rowNum = 1, page = 1) {
         console.log('readyItem', rowNum, page);
-        const tr = tableBody.find(`tr:nth-child(${rowNum})`);
+        const tr = $('#tableTbody').find(`tr:nth-child(${rowNum})`);
         const tds = tr.find('td');
         let item = {
             name: tr.find('[data-category]').text(),
@@ -363,16 +372,16 @@ $(function () {
             grade: Number(tds.find('select.grade').val()),
             quality: Number(tds.find('input[type="number"]').val()),
             dealOption1: {
-                type: Number(tds.find('select.status:eq(0)').val()),
+                type: Number(tds.find('select.status').eq(0).val()),
             },
             page: page
         };
-        const dealOption2 = tds.find('select.status:eq(1)').val();
+        const dealOption2 = tds.find('select.status').eq(1).val();
         if (dealOption2) {
             item = {
                 ...item, ...{
                     dealOption2: {
-                        type: Number(tds.find('select.status:eq(1)').val()),
+                        type: Number(dealOption2),
                     },
                 }
             };
@@ -430,7 +439,7 @@ $(function () {
         let rowNum = 1;
         $('#tableTbody').find('tr td:first-child').each((i, v) => {
             const td = $(v);
-            if(td.text() === itemName){
+            if (td.text() === itemName) {
                 rowNum = Number(td.closest('tr').index()) + 1;
                 return false;
             }
@@ -439,7 +448,7 @@ $(function () {
         let col = $('<div class="col"/>')
         let hasCol = false;
         const exists = $(`[data-rowNum="${rowNum}"]`);
-        if(exists.length > 0){
+        if (exists.length > 0) {
             col = exists.closest('div.col');
             hasCol = true;
         }
@@ -470,7 +479,7 @@ $(function () {
                         </thead>
                         <tbody class="list">
                             ${data.acc.map((a, i) => {
-                                return `
+            return `
                                     <tr>
                                         <td>${a.name}</td>
                                         <td>${a.effects.seal1.name ? `${a.effects.seal1.name} +${a.effects.seal1.value}` : '-'}</td>
@@ -483,7 +492,7 @@ $(function () {
                                         <td>${a.quality}</td>
                                     </tr>
                                 `;
-                            }).join('')}
+        }).join('')}
                             <tr></tr>
                         </tbody>
                     </table>
@@ -492,30 +501,30 @@ $(function () {
             </div>
         `;
         col.html(html);
-        if(!hasCol){
+        if (!hasCol) {
             searchRow.append(col);
         }
         addListeners();
     }
 
-    function addListeners(){
-        searchRow.find('ul.pagination li.page-item').off('click').on('click', function (){
+    function addListeners() {
+        searchRow.find('ul.pagination li.page-item').off('click').on('click', function () {
             const itemName = $(this).closest('div.card').find('.card-header h3').text();
             let rowNum = 1;
             $('#tableTbody').find('tr td:first-child').each((i, v) => {
                 const td = $(v);
-                if(td.text() === itemName){
+                if (td.text() === itemName) {
                     rowNum = Number(td.closest('tr').index()) + 1;
                     return false;
                 }
             });
             const page = Number($(this).text().trim());
-            if(page && !isNaN(page)){
+            if (page && !isNaN(page)) {
                 search(rowNum, page);
             }
         });
 
-        searchRow.find('table tbody tr').off('click').on('click', function (){
+        searchRow.find('table tbody tr').off('click').on('click', function () {
             const background = $(this).hasClass('clicked');
             if (background) {
                 $(this).removeClass('clicked');
@@ -527,17 +536,17 @@ $(function () {
             let target;
             $('#tableTbody').find('tr td:first-child').each((i, v) => {
                 const td = $(v);
-                if(td.text() === itemName){
+                if (td.text() === itemName) {
                     target = td.closest('tr');
                     return false;
                 }
             });
             //console.log(target);
-            if(target){
+            if (target) {
                 // 디버프 클릭한걸로
                 const clickedDebuff = $(this).children('td:nth-child(4)').text().replace(/\s/g, '');
                 //console.log(clickedDebuff, target.find('select.debuff'));
-                target.find('select.debuff option').filter(function() {
+                target.find('select.debuff option').filter(function () {
                     return $(this).text() === clickedDebuff;
                 }).prop('selected', true);
                 target.find('select.debuff').change();

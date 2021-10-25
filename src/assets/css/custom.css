@@ -51,3 +51,7 @@ td.seal_under{
     color: lightslategray;
     font-weight: bold;
 }
+select.number.plus{
+    color: orangered;
+    font-weight: bold;
+}
