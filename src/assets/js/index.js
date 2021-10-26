@@ -111,11 +111,12 @@ $(function () {
     const tbody = $('#tableTbody');
     //const rows = ['목걸이', '귀걸이1', '귀걸이2', '반지1', '반지2', '각인1', '각인2', '돌'];
     const rows = [
-            {title: '목걸이', code: category.목걸이},
+        {title: '목걸이', code: category.목걸이},
         {title: '귀걸이1', code: category.귀걸이},
         {title: '귀걸이2', code: category.귀걸이},
         {title: '반지1', code: category.반지}, {
-        title: '반지2', code: category.반지},
+            title: '반지2', code: category.반지
+        },
         {title: '각인1'},
         {title: '각인2'}, {title: '돌'}]
 
@@ -248,9 +249,9 @@ $(function () {
         const nth = index + 1;
         const tr = tbody.find('tr');
         const thisVal = Number($(this).val());
-        if(thisVal && !isNaN(thisVal) && thisVal > 0){
+        if (thisVal && !isNaN(thisVal) && thisVal > 0) {
             $(this).addClass("plus");
-        }else{
+        } else {
             $(this).removeClass("plus");
         }
         let count = 0;
@@ -301,6 +302,11 @@ $(function () {
         $('#sealSelector').append(option);
     }
 
+    $('#sealSelector').selectize({
+        create: false,
+        sortField: "text",
+        maxItems: 1,
+    });
 
     // 각인 모달창
     let currentSeal = 1;
