@@ -1,14 +1,14 @@
 {
-  "name": "Lostark 각인 경매장",
+  "name": "로아 각인 경매장",
   "description": "설명 무",
   "version": "0.1",
   "manifest_version": 3,
   "action": {},
   "icons": {
-    "16": "icon.png",
-    "32": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
+    "16": "icon/16.png",
+    "32": "icon/32.png",
+    "48": "icon/48.png",
+    "128": "icon/128.png"
   },
   "permissions": [
     "activeTab"
